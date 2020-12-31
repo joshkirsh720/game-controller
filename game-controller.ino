@@ -35,14 +35,24 @@ void loop() {
   int x_2 = analogRead(JOYSTICK2_X);
   int joystickButton_2 = digitalRead(JOYSTICK2_BTN);
   int btn_2 = digitalRead(BTN2);
+  
+  Joystick.X(x_1);
+  Joystick.Y(y_1);
+  Joystick.Z(x_2);
+  Joystick.Zrotate(y_2);
+
+  Joystick.button(1, btn_1);
+  Joystick.button(2, btn_2);
+  Joystick.button(3, joystickButton_1 ? 0 : 1);
+  Joystick.button(4, joystickButton_2 ? 0 : 1);
  
   Serial.println(y_1);
   Serial.println(x_1);
-  Serial.println(joystickButton_1);
+  Serial.println(joystickButton_1 ? 0 : 1);
   Serial.println(btn_1);
   Serial.println(y_2);
   Serial.println(x_2);
-  Serial.println(joystickButton_2);
+  Serial.println(joystickButton_2 ? 0 : 1);
   Serial.println(btn_2);
   Serial.println("\n\n\n");
 
